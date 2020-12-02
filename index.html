@@ -10,11 +10,16 @@
   </head>
   <body>
     <div id="app">
+      <!-- Search tool -->
       <input v-model="search" placeholder="Type the title of the film">
       <button type="button" name="button" @click="searchMovie">Search</button>
-      <ul>
-        <li v-for="(movie, index) in movies">{{movie.original_title}}</li>
-      </ul>
+      <!-- Movie features -->
+      <ol v-for="(movie, index) in movies">
+        <li>{{movie.title}}</li>
+        <li>{{movie.original_title}}</li>
+        <li>{{movie.original_language}}</li>
+        <li>{{movie.vote_average}}</li>
+      </ol>
     </div>
 
     <script type="text/javascript" src="js/script.js">
