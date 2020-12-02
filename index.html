@@ -11,7 +11,7 @@
   <body>
     <div id="app">
       <!-- Search tool -->
-      <input v-model="search" placeholder="Type the title of the film">
+      <input v-model="search" v-on:keyup.13="searchMovie" placeholder="Type the title of the film">
       <button type="button" name="button" @click="searchMovie">Search</button>
       <!-- Movie features -->
       <ol v-for="(movie, index) in movies">
