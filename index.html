@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <!-- link fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <!-- Link css -->
+    <link rel="stylesheet" href="css/style.css">
     <!-- Link Vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <!-- Link axios -->
@@ -19,7 +21,10 @@
       <ol v-for="(movie, index) in movies">
         <li>{{movie.title}}</li>
         <li>{{movie.original_title}}</li>
-        <li>{{movie.original_language}}</li>
+        <li>
+          <img :src="'img/' + movie.original_language + '.svg'" alt="">
+          {{movie.original_language}}
+        </li>
         <!-- Stars -->
         <li>
           <i class="fas fa-star" v-for="vote in Math.ceil(movie.vote_average / 2)"></i>
