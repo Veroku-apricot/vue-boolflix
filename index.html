@@ -19,8 +19,12 @@
       <button type="button" name="button" @click="searchMovie">Search</button>
       <!-- Movie features -->
       <ol v-for="(movie, index) in movies">
-        <li>{{movie.title}}</li>
-        <li>{{movie.original_title}}</li>
+        <li v-if="movie.media_type === 'movie'">{{movie.title}}</li>
+        <li v-else>{{movie.name}}</li>
+
+        <li v-if="movie.media_type === 'movie'">{{movie.original_title}}</li>
+        <li v-else>{{movie.original_name}}</li>
+        <li>{{movie.media_type}}</li>
         <li>
           <img :src="'img/' + movie.original_language + '.svg'" alt="">
           {{movie.original_language}}
