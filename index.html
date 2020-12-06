@@ -16,13 +16,16 @@
     <div id="app">
       <!-- Search tool -->
       <input v-model="search" v-on:keyup.13="searchMovie" placeholder="Type the title of the film">
-      <button type="button" name="button" @click="searchMovie">Search</button>
       <!-- Movie features -->
       <ol v-for="(movie, index) in moviesTv">
         <li>{{movie.title || movie.name}}</li>
         <li>{{movie.original_title || movie.original_name}}</li>
+        <!-- Poster -->
         <li>
-          <img :src="'img/' + movie.original_language + '.svg'" alt="">
+          <img :src="'https://image.tmdb.org/t/p/w185/' + movie.poster_path" alt="Poster">
+        </li>
+        <li>
+          <img class="flag" :src="'img/' + movie.original_language + '.svg'" alt="Language flag">
           {{movie.original_language}}
         </li>
         <!-- Stars -->
