@@ -15,6 +15,7 @@
   <body>
     <div id="app">
       <div id="header">
+        <img src="img/Netflix-Logo.png" alt="">
         <!-- Search tool -->
         <input v-model="search" v-on:keyup.13="searchMovie" placeholder="Search">
       </div>
@@ -25,18 +26,18 @@
           <img v-else :src="'https://image.tmdb.org/t/p/w342/' + movie.poster_path" alt="Poster">
           <!-- Overlay -->
           <div class="overlay">
-            <!-- Movie features -->
+            <!-- Movie title -->
             <p><span>Title:</span> {{movie.title || movie.name}}</p>
             <p><span>Original Title:</span> {{movie.original_title || movie.original_name}}</p>
-            <div class="">
-              <img class="flag" :src="'img/' + movie.original_language + '.svg'" alt="Language flag">
-              {{movie.original_language}}
+            <!-- Original language -->
+            <div class="language">
+              <span>Original Language:</span>
+              <img class="flag" :src="'img/' + movie.original_language + '.svg'" :alt="movie.original_language">
             </div>
             <!-- Stars -->
-            <i class="fas fa-star" v-for="vote in Math.ceil(movie.vote_average / 2)"></i>
-            <i class="far fa-star" v-for="vote in 5 - (Math.ceil(movie.vote_average / 2))"></i>
+            <i class="fas fa-star" v-for="vote in Math.ceil(movie.vote_average / 2)"></i><i class="far fa-star" v-for="vote in 5 - (Math.ceil(movie.vote_average / 2))"></i>
             <!-- Overview -->
-            <p><span>Overview:</span> {{movie.overview}}</p>
+            <p v-if="movie.overview!==''" ><span>Overview:</span> {{movie.overview}}</p>
           </div>
         </div>
       </div>

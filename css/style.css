@@ -9,9 +9,13 @@
   height: 70px;
   padding: 10px 50px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
 }
+
+  #header > img {
+    max-height: 100%;
+  }
 
 #movies {
   background-color: grey;
@@ -40,6 +44,7 @@
   color: white;
   font-size: 20px;
   padding: 20px;
+  overflow: auto;
 }
 
 .overlay > * {
@@ -48,11 +53,13 @@
 
 p {
   color: #e6e6e6;
+  font-size: 18px;
 }
 
 span {
   font-weight: bold;
   color: white;
+  font-size: 20px;
 }
 
 .poster:hover .overlay {
@@ -63,4 +70,14 @@ span {
 .flag {
   width: 20px;
   height: 20px;
+  margin-left: 10px;
+}
+
+.language {
+  display: flex;
+  align-items: center;
+}
+
+.fa-star {
+  color: yellow;
 }
