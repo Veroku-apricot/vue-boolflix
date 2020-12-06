@@ -14,26 +14,30 @@
   </head>
   <body>
     <div id="app">
-      <!-- Search tool -->
-      <input v-model="search" v-on:keyup.13="searchMovie" placeholder="Type the title of the film">
-      <!-- Movie features -->
-      <ol v-for="(movie, index) in moviesTv">
-        <li>{{movie.title || movie.name}}</li>
-        <li>{{movie.original_title || movie.original_name}}</li>
-        <!-- Poster -->
-        <li>
-          <img :src="'https://image.tmdb.org/t/p/w185/' + movie.poster_path" alt="Poster">
-        </li>
-        <li>
-          <img class="flag" :src="'img/' + movie.original_language + '.svg'" alt="Language flag">
-          {{movie.original_language}}
-        </li>
-        <!-- Stars -->
-        <li>
-          <i class="fas fa-star" v-for="vote in Math.ceil(movie.vote_average / 2)"></i>
-          <i class="far fa-star" v-for="vote in 5 - (Math.ceil(movie.vote_average / 2))"></i>
-        </li>
-      </ol>
+      <div id="header">
+        <!-- Search tool -->
+        <input v-model="search" v-on:keyup.13="searchMovie" placeholder="Search">
+      </div>
+      <div id="movies">
+        <!-- Movie features -->
+        <ol v-for="(movie, index) in moviesTv">
+          <li>{{movie.title || movie.name}}</li>
+          <li>{{movie.original_title || movie.original_name}}</li>
+          <!-- Poster -->
+          <li>
+            <img :src="'https://image.tmdb.org/t/p/w342/' + movie.poster_path" alt="Poster">
+          </li>
+          <li>
+            <img class="flag" :src="'img/' + movie.original_language + '.svg'" alt="Language flag">
+            {{movie.original_language}}
+          </li>
+          <!-- Stars -->
+          <li>
+            <i class="fas fa-star" v-for="vote in Math.ceil(movie.vote_average / 2)"></i>
+            <i class="far fa-star" v-for="vote in 5 - (Math.ceil(movie.vote_average / 2))"></i>
+          </li>
+        </ol>
+      </div>
     </div>
 
     <script type="text/javascript" src="js/script.js">
