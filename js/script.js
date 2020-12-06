@@ -4,7 +4,7 @@ const tvApi = 'https://api.themoviedb.org/3/search/tv?api_key=da5b0a9b54cbfc601e
 var app = new Vue ({
   el: '#app',
   data: {
-    search: '',
+    search: 'the',
     moviesTv: []
   },
   methods: {
