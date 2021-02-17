@@ -17,6 +17,11 @@
     max-height: 100%;
   }
 
+  #header button > i {
+    padding: 1px 3px 0;
+    font-size: 10px;
+  }
+
 #movies {
   background-color: grey;
   height: calc(100vh - 70px);
