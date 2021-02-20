@@ -36,6 +36,8 @@ var app = new Vue ({
         let tvs = responses[1].data.results;
         this.moviesTv = [...movies, ...tvs];
       }));
+
+      this.mainText = 'SEARCH RESULT FOR ' + '"' + this.search + '"';
     }
   }
 })
