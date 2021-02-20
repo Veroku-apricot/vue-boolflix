@@ -6,6 +6,7 @@ const trendingTvApi = 'https://api.themoviedb.org/3/trending/tv/week?api_key=da5
 var app = new Vue ({
   el: '#app',
   data: {
+    mainText: '',
     search: '',
     moviesTv: []
   },
@@ -20,9 +21,7 @@ var app = new Vue ({
       this.moviesTv = [...movies, ...tvs];
     }));
 
-    // .then(response => {
-    //   this.moviesTv = response.data.results;
-    // });
+    this.mainText = 'POPULAR THIS WEEK';
   },
   // Search Results
   methods: {

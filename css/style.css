@@ -35,6 +35,12 @@
   justify-content: center;
 }
 
+  #movies > h1 {
+    width: 100%;
+    text-align: center;
+    color: white;
+  }
+
 .poster {
   margin: 10px;
   height: 513px;

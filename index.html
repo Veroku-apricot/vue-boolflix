@@ -23,6 +23,7 @@
         </div>
       </div>
       <div id="movies">
+        <h1>{{mainText}}</h1>
         <!-- Poster -->
         <div class="poster" v-for="(movie, index) in moviesTv">
           <img v-if="movie.poster_path===null" src="img/no-cover.png" alt="">
