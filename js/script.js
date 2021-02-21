@@ -9,17 +9,27 @@ var app = new Vue ({
     mainText: '',
     search: '',
     showLang: false,
+    showGenre: false,
     moviesTv: [],
-    languages: []
+    languages: [],
+    genres: []
   },
 
   mounted : function () {
     this.popularShows();
 
+    // Language list
     axios.get('https://api.themoviedb.org/3/configuration/languages?api_key=da5b0a9b54cbfc601e8917f9f7d3843c')
             .then(response => {
               this.languages = response.data;
             });
+
+    // Genre list
+    axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=da5b0a9b54cbfc601e8917f9f7d3843c')
+          .then(response => {
+            this.genres = response.data.genres;
+          });
+
   },
 
   methods: {

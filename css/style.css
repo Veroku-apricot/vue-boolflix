@@ -44,10 +44,19 @@
 .filter {
   overflow: auto;
   position: absolute;
-  height: 100px;
+  height: 150px;
+  margin-top: 10px;
   z-index: 999;
   background-color: black;
 }
+  .language {
+    right: 40px;
+    padding-top: 10px;
+  }
+  .genre {
+    right: 10px;
+    padding-right: 10px;
+  }
 
 #movies {
   background-color: #262626;

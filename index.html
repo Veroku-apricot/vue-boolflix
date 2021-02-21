@@ -21,16 +21,22 @@
           <input v-model="search" v-on:keyup.13="searchMovie" placeholder="Search">
           <button @click="searchMovie"><i class="fas fa-search"></i></button>
         </div>
-        <!-- Filter -->
+        <!-- Filters -->
         <div>
           <span @click="filterTv">Tv Shows</span> |
           <span @click="filterMovie">Movies</span> |
-          <span @click="showLang = !showLang">Language <i class="fas fa-sort-down"></i></span> |
-          <span>Genre <i class="fas fa-sort-down"></i></span>
+          <span @click="showLang = !showLang; showGenre = false">Language <i class="fas fa-sort-down"></i></span> |
+          <span @click="showGenre = !showGenre; showLang = false">Genre <i class="fas fa-sort-down"></i></span>
           <!-- Language List -->
-          <div class="filter" v-if="showLang">
+          <div class="filter language" v-if="showLang">
             <ul>
               <li v-for="(language, index) in languages">{{language.english_name}}</li>
+            </ul>
+          </div>
+          <!-- Genre List -->
+          <div class="filter genre" v-if="showGenre">
+            <ul>
+              <li v-for="(genre, index) in genres">{{genre.name}}</li>
             </ul>
           </div>
         </div>
