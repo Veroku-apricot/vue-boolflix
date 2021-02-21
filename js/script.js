@@ -8,11 +8,18 @@ var app = new Vue ({
   data: {
     mainText: '',
     search: '',
-    moviesTv: []
+    showLang: false,
+    moviesTv: [],
+    languages: []
   },
 
   mounted : function () {
     this.popularShows();
+
+    axios.get('https://api.themoviedb.org/3/configuration/languages?api_key=da5b0a9b54cbfc601e8917f9f7d3843c')
+            .then(response => {
+              this.languages = response.data;
+            });
   },
 
   methods: {
@@ -44,6 +51,23 @@ var app = new Vue ({
       }));
 
       this.mainText = 'SEARCH RESULTS FOR ' + '"' + this.search + '"';
+    },
+    // Filters
+    // Filter tv shows
+    filterTv: function () {
+      axios.get('https://api.themoviedb.org/3/trending/tv/day?api_key=da5b0a9b54cbfc601e8917f9f7d3843c')
+            .then(response => {
+              this.moviesTv = response.data.results;
+            });
+      this.mainText = 'POPULAR TV SHOWS';
+    },
+    // Filter movies
+    filterMovie: function () {
+      axios.get('https://api.themoviedb.org/3/trending/movie/day?api_key=da5b0a9b54cbfc601e8917f9f7d3843c')
+            .then(response => {
+              this.moviesTv = response.data.results;
+            });
+      this.mainText = 'POPULAR MOVIES';
     }
   }
 })

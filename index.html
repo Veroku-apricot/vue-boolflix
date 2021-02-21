@@ -23,9 +23,16 @@
         </div>
         <!-- Filter -->
         <div>
-          <span>Tv Shows</span> |
-          <span>Movies</span> |
-          <span>Language</span>
+          <span @click="filterTv">Tv Shows</span> |
+          <span @click="filterMovie">Movies</span> |
+          <span @click="showLang = !showLang">Language <i class="fas fa-sort-down"></i></span> |
+          <span>Genre <i class="fas fa-sort-down"></i></span>
+          <!-- Language List -->
+          <div class="filter" v-if="showLang">
+            <ul>
+              <li v-for="(language, index) in languages">{{language.english_name}}</li>
+            </ul>
+          </div>
         </div>
       </div>
       <div id="movies">

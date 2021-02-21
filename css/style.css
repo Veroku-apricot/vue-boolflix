@@ -11,6 +11,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
   #header > img {
@@ -35,11 +36,18 @@
       font-weight: lighter;
       padding: 0 5px;
     }
-    #header div > span:hover {
+    #header div > span:hover, .filter li:hover{
       cursor: pointer;
       color: gray;
     }
-  
+
+.filter {
+  overflow: auto;
+  position: absolute;
+  height: 100px;
+  z-index: 999;
+  background-color: black;
+}
 
 #movies {
   background-color: #262626;
