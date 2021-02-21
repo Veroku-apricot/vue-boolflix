@@ -16,6 +16,9 @@
   #header > img {
     max-height: 100%;
   }
+    #header > img:hover {
+      cursor: pointer;
+    }
 
   #header button > i {
     padding: 1px 3px 0;
@@ -24,6 +27,19 @@
     #header button:hover {
       cursor: pointer;
     }
+  #header > div {
+    color: white;
+  }
+    #header div > span {
+      font-size: 16px;
+      font-weight: lighter;
+      padding: 0 5px;
+    }
+    #header div > span:hover {
+      cursor: pointer;
+      color: gray;
+    }
+  
 
 #movies {
   background-color: #262626;

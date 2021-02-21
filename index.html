@@ -15,11 +15,17 @@
   <body>
     <div id="app">
       <div id="header">
-        <img src="img/Netflix-Logo.png" alt="">
+        <img src="img/Netflix-Logo.png" alt="" @click="popularShows">
         <!-- Search tool -->
         <div>
           <input v-model="search" v-on:keyup.13="searchMovie" placeholder="Search">
           <button @click="searchMovie"><i class="fas fa-search"></i></button>
+        </div>
+        <!-- Filter -->
+        <div>
+          <span>Tv Shows</span> |
+          <span>Movies</span> |
+          <span>Language</span>
         </div>
       </div>
       <div id="movies">

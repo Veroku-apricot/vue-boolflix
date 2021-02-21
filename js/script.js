@@ -10,21 +10,27 @@ var app = new Vue ({
     search: '',
     moviesTv: []
   },
-  // Popular shows
+
   mounted : function () {
-    let requestOne = axios.get(trendingMovieApi);
-    let requestTwo = axios.get(trendingTvApi);
-
-    axios.all([requestOne, requestTwo]).then(axios.spread((...responses) => {
-      let movies = responses[0].data.results;
-      let tvs = responses[1].data.results;
-      this.moviesTv = [...movies, ...tvs];
-    }));
-
-    this.mainText = 'POPULAR THIS WEEK';
+    this.popularShows();
   },
-  // Search Results
+
   methods: {
+    // Popular shows
+    popularShows: function () {
+      let requestOne = axios.get(trendingMovieApi);
+      let requestTwo = axios.get(trendingTvApi);
+
+      axios.all([requestOne, requestTwo]).then(axios.spread((...responses) => {
+        let movies = responses[0].data.results;
+        let tvs = responses[1].data.results;
+        this.moviesTv = [...movies, ...tvs];
+      }));
+
+      this.mainText = 'POPULAR THIS WEEK';
+      this.search = '';
+      },
+    // Search Results
     searchMovie: function () {
       let callApi = api => axios.get(api, {params: {query: this.search}});
 
@@ -37,7 +43,7 @@ var app = new Vue ({
         this.moviesTv = [...movies, ...tvs];
       }));
 
-      this.mainText = 'SEARCH RESULT FOR ' + '"' + this.search + '"';
+      this.mainText = 'SEARCH RESULTS FOR ' + '"' + this.search + '"';
     }
   }
 })
