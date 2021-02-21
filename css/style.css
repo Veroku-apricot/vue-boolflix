@@ -50,8 +50,9 @@
   background-color: black;
 }
   .language {
-    right: 40px;
+    right: 60px;
     padding-top: 10px;
+    width: 150px;
   }
   .genre {
     right: 10px;

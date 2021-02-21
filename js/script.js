@@ -11,7 +11,17 @@ var app = new Vue ({
     showLang: false,
     showGenre: false,
     moviesTv: [],
-    languages: [],
+    languages: [
+      {"english_name": "English"},
+      {"english_name": "French"},
+      {"english_name": "German"},
+      {"english_name": "Italian"},
+      {"english_name": "Japanese"},
+      {"english_name": "Korean"},
+      {"english_name": "Portuguese"},
+      {"english_name": "Spanish"},
+      {"english_name": "Swedish"}
+    ],
     genres: []
   },
 
@@ -19,11 +29,11 @@ var app = new Vue ({
     this.popularShows();
 
     // Language list
-    axios.get('https://api.themoviedb.org/3/configuration/languages?api_key=da5b0a9b54cbfc601e8917f9f7d3843c')
-            .then(response => {
-              this.languages = response.data;
-            });
-
+    // axios.get('https://api.themoviedb.org/3/configuration/languages?api_key=da5b0a9b54cbfc601e8917f9f7d3843c')
+    //         .then(response => {
+    //           this.languages = response.data;
+    //         });
+  
     // Genre list
     axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=da5b0a9b54cbfc601e8917f9f7d3843c')
           .then(response => {
