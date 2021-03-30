@@ -2,10 +2,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
+body {
+  background-color: #262626;
+}
 #header {
-  background-color: black;
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(7,7,7,1) 89%);
   height: 70px;
   padding: 10px 50px;
   display: flex;
@@ -13,6 +18,35 @@
   align-items: center;
   position: relative;
 }
+
+  /* Search tool */
+  .search-tool > input {
+    width: 250px;
+    height: 30px;
+    border-radius: 3px;
+    border: none;
+    padding: 0 10px;
+  }
+    .search-tool > input:focus {
+      box-shadow: 0px 0px 3px 3px #7e7e7e;
+      outline: none;
+    }
+  .search-tool > button {
+    width: 30px;
+    height: 30px;
+    margin-left: 2px;
+    background-color: #d7171f;
+    border: none;
+    border-radius: 3px;
+    color: white;
+  }
+    .search-tool > button:focus {
+      outline: none;
+    }
+    .search-tool > button:active {
+      box-shadow: 0px 0px 0px 3px #7e7e7e;
+    }
+
 
   #header > img {
     max-height: 100%;
